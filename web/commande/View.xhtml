@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CommandeViewDlg" widgetVar="CommandeViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCommandeTitle}">
+            <h:form id="CommandeViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{commandeController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCommandeLabel_dateCommande}"/>
+                        <h:outputText value="#{commandeController.selected.dateCommande}" title="#{bundle.ViewCommandeTitle_dateCommande}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCommandeLabel_client}"/>
+                        <h:outputText value="#{commandeController.selected.client}" title="#{bundle.ViewCommandeTitle_client}"/>
+                        <h:outputText value="#{bundle.ViewCommandeLabel_id}"/>
+                        <h:outputText value="#{commandeController.selected.id}" title="#{bundle.ViewCommandeTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewCommandeLabel_total}"/>
+                        <h:outputText value="#{commandeController.selected.total}" title="#{bundle.ViewCommandeTitle_total}"/>
+                        <h:outputText value="#{bundle.ViewCommandeLabel_remise}"/>
+                        <h:outputText value="#{commandeController.selected.remise}" title="#{bundle.ViewCommandeTitle_remise}"/>
+                        <h:outputText value="#{bundle.ViewCommandeLabel_totalPaye}"/>
+                        <h:outputText value="#{commandeController.selected.totalPaye}" title="#{bundle.ViewCommandeTitle_totalPaye}"/>
+                        <h:outputText value="#{bundle.ViewCommandeLabel_totalRestant}"/>
+                        <h:outputText value="#{commandeController.selected.totalRestant}" title="#{bundle.ViewCommandeTitle_totalRestant}"/>
+                        <h:outputText value="#{bundle.ViewCommandeLabel_etat}"/>
+                        <h:outputText value="#{commandeController.selected.etat}" title="#{bundle.ViewCommandeTitle_etat}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CommandeViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
