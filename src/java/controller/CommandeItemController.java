@@ -4,7 +4,6 @@ import bean.CommandeItem;
 import controller.util.JsfUtil;
 import controller.util.JsfUtil.PersistAction;
 import service.CommandeItemFacade;
-
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -18,7 +17,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
-import javax.persistence.Query;
+
 
 @Named("commandeItemController")
 @SessionScoped
@@ -40,10 +39,9 @@ public class CommandeItemController implements Serializable {
         this.selected = selected;
     }
 
-     public void ValiderCommande() {
-        
-         ejbFacade.ValiderCommande(items, null);
-         }
+     public void validerCommande() {
+         ejbFacade.validerCommande(items);
+      }
 
     protected void setEmbeddableKeys() {
     }
